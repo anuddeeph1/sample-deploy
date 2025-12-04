@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sample-deployment-1
+  name: sample-deployment-123
   labels:
-    app: sample-app-123
+    app: sample-app-1
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: sample-app-123
+      app: sample-app-1
   template:
     metadata:
       labels:
-        app: sample-app-123
+        app: sample-app-1
     spec:
       containers:
-      - name: busybox123
+      - name: busybox12345
         image: busybox
         command: ["sh", "-c", "while true; do date; echo 'Hello from deployment 1'; sleep 60; done"]
         resources:
