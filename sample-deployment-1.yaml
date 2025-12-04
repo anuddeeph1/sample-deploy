@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-deployment-1
+  labels:
+    app: sample-app-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-app-1
+  template:
+    metadata:
+      labels:
+        app: sample-app-1
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        command: ["sh", "-c", "while true; do date; echo 'Hello from deployment 1'; sleep 60; done"]
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
+      restartPolicy: Always
+
